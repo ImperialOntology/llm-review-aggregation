@@ -1,0 +1,37 @@
+# https://github.com/Saibo-creator/transformers-CFG/blob/main/examples/grammars/json.ebnf
+# Grammar for subset of JSON specifically tailored for the meronymns format
+
+# string  ::= "\"" characters "\"" ws
+
+# characters ::= [ \t!#-\[\]-~]*
+
+# Define placeholders for specific aspect strings
+aspect1 ::= "\"" "ASPECT1_PLACEHOLDER" "\""
+aspect2 ::= "\"" "ASPECT2_PLACEHOLDER" "\""
+
+# Define string to be either aspect1 or aspect2
+string ::= aspect1 | aspect2
+# string ::= ASPECTS_PLACEHOLDER
+
+number ::= ([0-1]) ("." [0-9] [0-9]? [0-9]? [0-9]? [0-9]?)?
+
+ws      ::= [ ]?
+
+# Specific grammar for part-whole relations
+
+meronymn ::= "{" "\"meronymn\"" ":" ws meronym_array "}"
+
+meronym_array ::= "[" (meronym_object)? "]"
+
+# meronym_object ::= "{" "\"part\"" ":" ws string "," ws "\"whole\"" ":" ws string "," ws "\"score\"" ":" ws number "}"
+meronym_object ::= "{" "\"part\"" ":" ws string "," ws "\"whole\"" ":" ws string "}"
+
+# meronym_array ::= "[" meronym_object1 "," meronym_object2 "]"
+
+# meronym_object1 ::= "{" "\"part\"" ":" ws aspect1 "," ws "\"whole\"" ":" ws aspect2 "," ws "\"score\"" ":" ws number "}"
+
+# meronym_object2 ::= "{" "\"part\"" ":" ws aspect2 "," ws "\"whole\"" ":" ws aspect1 "," ws "\"score\"" ":" ws number "}"
+
+# Redefine root to be specifically for the meronymns JSON structure
+
+root ::= meronymn

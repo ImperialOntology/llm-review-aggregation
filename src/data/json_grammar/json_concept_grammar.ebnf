@@ -1,0 +1,17 @@
+# https://github.com/Saibo-creator/transformers-CFG/blob/main/examples/grammars/json.ebnf
+# Grammar for subset of JSON specifically tailored for the concepts format
+
+# Define string to be either yes or no
+yes_label ::= "\"" "yes" "\""
+no_label ::= "\"" "no" "\""
+string ::= yes_label | no_label
+
+ws      ::= [ ]*
+
+# Specific grammar for yes/no answer
+
+answer_object ::= "{" "\"answer\"" ":" ws string "}"
+
+# Redefine root to be specifically for the concepts JSON structure
+
+root ::= answer_object

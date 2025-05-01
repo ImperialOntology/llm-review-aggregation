@@ -1,0 +1,22 @@
+# https://github.com/Saibo-creator/transformers-CFG/blob/main/examples/grammars/json.ebnf
+# Grammar for subset of JSON specifically tailored for the aspects format
+
+string  ::= "\"" characters "\"" ws
+
+characters ::= [ \t!#-\[\]-~]*
+
+ws      ::= [ ]*
+
+# Specific grammar for aspects and polarity
+
+aspects ::= "{" "\"aspects\"" ":" ws aspect_array "}"
+
+aspect_array ::= "[" (aspect_object ("," ws aspect_object)* )? "]"
+
+aspect_object ::= "{" "\"aspect\"" ":" ws string "," ws "\"polarity\"" ":" ws polarity "}"
+
+polarity ::= "\"positive\"" | "\"neutral\"" | "\"negative\""
+
+# Redefine root to be specifically for the aspects JSON structure
+
+root ::= aspects

@@ -1,0 +1,34 @@
+{
+  "electronics": {
+    "smartphones": {
+      "android": null,
+      "ios": null
+    },
+    "laptops": {
+      "gaming": null,
+      "business": null,
+      "ultrabooks": null
+    },
+    "audio": {
+      "headphones": {
+        "over-ear": null,
+        "in-ear": null,
+        "wireless": null
+      },
+      "speakers": {
+        "bluetooth": null,
+        "smart": null,
+        "home theater": null
+      }
+    },
+    "cameras": {
+      "dslr": null,
+      "mirrorless": null,
+      "point-and-shoot": null
+    },
+    "wearables": {
+      "smartwatches": null,
+      "fitness trackers": null
+    }
+  }
+} 
