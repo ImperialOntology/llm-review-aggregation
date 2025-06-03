@@ -63,7 +63,7 @@ This project implements automatic ontology extraction and review aggregation usi
 ## Installation
 1. Clone the repository from GitLab:
    ```bash
-   git clone git@gitlab.doc.ic.ac.uk:g24mai05/llm-review-aggregation.git
+   git clone https://github.com/ImperialOntology/llm-review-aggregation.git
    ```
 2. Navigate to the project directory:
    ```bash
